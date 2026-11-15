@@ -79,16 +79,33 @@ The NAS operates within a local network and provides shared storage access to co
 
 ### Client Access
 **Windows 11**
+
 ![Windows Client Access](screenshots/06-windows-client-access.png)
 
 ![Windows Client Access](screenshots/06-windows-client-access1.png)
 
 **Android**
-![Android Client Access](screenshots/07-android-client-access.jpg)
 
-![Android Client Access](screenshots/07-android-client-access1.jpg)
+<p align="center">
+  <img src="screenshots/07-android-client-access.jpg"
+       width="250"
+       style="max-width: 100%; height: auto;"
+       alt="Android NAS access">
+</p>
 
-![Android Client Access](screenshots/07-android-client-access2.jpg)
+<p align="center">
+  <img src="screenshots/07-android-client-access1.jpg"
+       width="250"
+       style="max-width: 100%; height: auto;"
+       alt="Android NAS access">
+</p>
+
+<p align="center">
+  <img src="screenshots/07-android-client-access2.jpg"
+       width="250"
+       style="max-width: 100%; height: auto;"
+       alt="Android NAS access">
+</p>
 
 ## 8. Documentation
 
