@@ -5,66 +5,66 @@
 | Configuration | Details |
 |---|---|
 | Hostname | ManzaNAS |
-| Operating System | OpenMediaVault |
+| Operating System | Debian Linux + OpenMediaVault |
 | Processor | Intel Celeron N4000 |
 | CPU Cores | 2 |
 | Memory | 4 GB RAM |
 | Storage | 500 GB HDD |
-| Network | Ethernet / Wi-Fi |
+| Network | Ethernet (`eno1`) / Wi-Fi (`wlo1`) |
 | Network Environment | Local Area Network |
 
 ## 2. Storage Configuration
 
-- Storage device: 500 GB HDD
-- Shared folder: ManzaNAS_LJ
-- Filesystem: Refer to the actual configured filesystem in OpenMediaVault.
+- **Storage device:** 500 GB HDD
+- **Shared folder:** `ManzaNAS_LJ`
+- **Filesystem:** ext4 / BTRFS (Refer to actual OMV filesystem)
 
 ## 3. Network Configuration
 
-The NAS is connected to the local network and provides file-sharing services to client devices.
+The NAS is connected to the local network via Wi-Fi and provides file-sharing services to client devices.
 
-- Hostname: ManzaNAS
-- Connection type: [Specify actual active connection]
-- IP configuration: [DHCP or static, verify before completing]
-- SMB service: Enabled
-
-The private LAN IP address is intentionally omitted from this public documentation.
+- **Hostname:** ManzaNAS
+- **Active Connection:** Wi-Fi (`wlo1`)
+- **IP Configuration:** Static IP
+- **IPv4 Address:** `192.168.1.14`
+- **IPv4 Netmask:** `255.255.255.0`
+- **IPv4 Gateway:** `192.168.1.1`
+- **DNS Servers:** `8.8.8.8`
+- **IPv6 Method:** Disabled (to prevent routing conflicts)
+- **SMB Service:** Enabled
 
 ## 4. File Sharing Configuration
 
 | Item | Configuration |
 |---|---|
 | Service | SMB/CIFS |
-| Shared Folder | ManzaNAS_LJ |
+| Shared Folder | `ManzaNAS_LJ` |
 | Access Method | Network file sharing |
 | Windows Client | Windows 11 |
 | Android Client | CX File Explorer |
 
 ## 5. User and Access Management
 
-Separate user accounts were configured to manage access to shared storage.
+Separate user accounts were configured to manage access and separate OS operations from file sharing.
 
-Access permissions were assigned according to the intended use of each account.
+- **`root`**: Used strictly for emergency system administration in the terminal.
+- **`lj814`**: The foundational Debian OS user. Retains hardware groups (`audio, bluetooth, cdrom, netdev, plugdev, video`) for physical access.
+- **`manza`**: Dedicated standard user created within OMV exclusively for SMB folder access.
 
-Verify actual folder permissions before publishing screenshots.
+## 6. Power Management and Uptime Optimization
 
-## 6. Client Devices
+Because the NAS runs on laptop hardware, default sleep states were disabled via the CLI to prevent the network from dropping when the lid is closed or the system is idle.
 
-### Windows 11
-Used File Explorer to access the NAS shared folder over the local network.
-
-### Android
-Used CX File Explorer to connect to the NAS through SMB.
+**Command applied to disable sleep states:**
+`sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
 
 ## 7. Security and Operational Notes
 
 - Separate user accounts are used for access management.
-- Credentials should not be stored in public documentation.
+- The NAS is meant to run continuously; soft reboots (`reboot`) should be avoided due to hardware quirks. Full Cold Boots (`poweroff`) are required.
 - NAS administration is intended for the local network.
 - Remote access is not currently implemented.
 
 ## 8. Backup and Recovery
 
-An automated backup strategy has not yet been implemented.
-
-The current deployment should not be treated as a backup solution for important files until a separate backup and recovery process is established.
+An automated backup strategy has not yet been implemented. The current deployment should not be treated as a secure backup solution for critical data until redundancy is established.
