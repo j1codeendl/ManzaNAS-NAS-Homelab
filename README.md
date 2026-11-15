@@ -6,9 +6,9 @@ This project explores basic server administration, network file sharing, user ac
 
 ## 1. Project Overview
 
-ManzaNAS is a self-hosted NAS built using an old HP laptop running a foundational Debian Linux OS with OpenMediaVault (OMV) installed on top.
+ManzaNAS is a self-hosted NAS built using a repurposed HP laptop running Debian Linux with OpenMediaVault (OMV) installed as its web-based management interface.
 
-The goal was to repurpose available hardware into a centralized, headless file-sharing system that allows multiple devices to access shared files through the local Wi-Fi network, ensuring continuous uptime and a permanent static IP address.
+The goal was to repurpose available hardware into a centralized, headless file-sharing system that allows multiple devices to access shared files through the local Wi-Fi network.
 
 The project was developed as a hands-on learning experience in IT infrastructure, system administration, networking, and Linux command-line troubleshooting.
 
@@ -16,47 +16,57 @@ The project was developed as a hands-on learning experience in IT infrastructure
 
 - Deploy Debian Linux and OpenMediaVault on repurposed laptop hardware.
 - Configure network-based file sharing using SMB/CIFS.
-- Establish a permanent static Wi-Fi connection (`wlo1`) for a headless server environment.
+- Configure the Wi-Fi network interface (`wlo1`) for consistent local network access.
 - Create shared folders and manage user permissions.
 - Connect Windows and Android devices to the NAS.
-- Practice basic server configuration and CLI troubleshooting (`ip` suite, `omv-firstaid`).
+- Practice basic server configuration and command-line troubleshooting using the `ip` utility and `omv-firstaid`.
 - Document the implementation and network architecture.
 
 ## 3. Hardware Specifications
 
 | Component | Specification |
 |---|---|
-| Server | Repurposed HP Laptop |
+| Server | Repurposed HP laptop |
 | CPU | Intel Celeron N4000 @ 1.10 GHz |
 | CPU Cores | 2 |
 | Memory | 4 GB RAM |
-| Storage | 500 GB HDD |
-| Hostname | ManzaNAS |
-| Interfaces | `eno1` (Gigabit Ethernet), `wlo1` (Wi-Fi) |
+| Internal Storage | 500 GB HDD (system drive) |
+| Additional Storage | External USB flash drive (shared data storage) |
+| Data Filesystem | EXT4 |
+| Hostname | debian-manzanas |
+| Network Interfaces | `eno1` (Ethernet), `wlo1` (Wi-Fi) |
+
+The internal HDD hosts the operating system, while the external USB flash drive is used for the shared data filesystem.
 
 ## 4. Technologies and Tools
 
-- **Operating System:** Debian Linux (Base) / OpenMediaVault (GUI)
+- **Operating System:** Debian Linux
+- **NAS Management:** OpenMediaVault
 - **File Sharing Protocol:** SMB/CIFS
-- **Networking:** TCP/IP, Local Area Network (LAN), static IP binding
+- **Filesystem:** EXT4
+- **Networking:** TCP/IP and Local Area Network (LAN)
+- **Network Interface Configuration:** Linux `ip` utility and OpenMediaVault
 - **Windows Client:** Windows 11
 - **Android Client:** CX File Explorer
 - **Documentation:** GitHub and Markdown
 
 ## 5. Implemented Features
 
-- OpenMediaVault installation and network configuration.
-- SMB/CIFS network file sharing.
-- Shared folder configuration (`ManzaNAS_LJ`).
-- Separate user accounts and access permissions (`lj814` for OS, `manza` for SMB).
-- Power management adjustments to prevent the laptop from sleeping.
-- Network-based access to shared storage.
+- Installed and configured Debian Linux and OpenMediaVault.
+- Configured SMB/CIFS network file sharing.
+- Created and configured the `ManzaNAS_Files` shared folder.
+- Configured separate user accounts and folder access permissions.
+- Configured Wi-Fi connectivity for local network access.
+- Adjusted laptop power management settings to reduce automatic sleep or suspension during operation.
+- Enabled shared file access from Windows 11 and Android devices.
+- Tested cross-device file access using a sample text file.
 
 ## 6. Network Architecture
 
-The NAS operates within a local network and provides shared storage access to connected client devices via a permanent static Wi-Fi connection.
+ManzaNAS operates within a local network and provides shared storage access to connected client devices through its Wi-Fi interface.
 
-*(Note: Add your `network-diagram.png` to the `docs/` folder)*
+The network interface `wlo1` is used for the NAS's wireless network connection.
+
 ![ManzaNAS Network Diagram](docs/network-diagram.png)
 
 ## 7. Screenshots
@@ -107,41 +117,52 @@ The NAS operates within a local network and provides shared storage access to co
        alt="Android NAS access">
 </p>
 
-## 8. Documentation
+### Cross-Device File Sharing Test
 
-- [Setup Guide](setup-guide.md)
-- [Configuration Details](configuration.md)
-- [Troubleshooting](troubleshooting.md)
+A sample text file was created from Windows 11, stored on the NAS through SMB, and subsequently accessed from an Android device.
+
+## 8. Project Documentation
+
+- [Setup Guide](docs/setup-guide.md)
+- [Configuration Details](docs/configuration.md)
+- [Troubleshooting](docs/troubleshooting.md)
 
 ## 9. Project Limitations
 
 The current implementation has the following limitations:
 
-- Remote access (outside the local LAN) is not implemented.
+- Remote access outside the local network is not implemented.
 - Automated backup is not implemented.
-- The system uses repurposed laptop hardware with a single HDD, meaning no RAID redundancy.
-- Relies on Wi-Fi (`wlo1`) as the primary connection, which requires specific power management handling.
+- The shared data storage uses a single external USB flash drive without storage redundancy.
+- The system relies primarily on Wi-Fi connectivity.
+- The project uses repurposed laptop hardware with limited system resources.
 
 ## 10. Learning Outcomes
 
 Through this project, I gained hands-on experience with:
 
-- Installing and configuring a Linux-based NAS operating system.
-- Troubleshooting Linux network interfaces using `omv-firstaid` and `ip` commands.
-- Bypassing hardware bugs (e.g., HP Wi-Fi Warm Boot issues) through cold booting and power state masking.
-- Understanding SMB/CIFS network file sharing and user permissions.
-- Technical documentation preparation.
+- Installing and configuring a Debian-based NAS environment.
+- Managing a Linux-based server through a web administration interface.
+- Configuring network interfaces and troubleshooting connectivity.
+- Using Linux command-line utilities such as `ip` and `omv-firstaid`.
+- Understanding SMB/CIFS file sharing and user access permissions.
+- Connecting Windows and Android clients to network storage.
+- Performing basic system and network troubleshooting.
+- Preparing technical documentation and network diagrams.
 
 ## 11. Future Improvements
 
 Potential improvements include:
 
-- Implementing an automated backup strategy.
+- Implementing an automated backup and recovery strategy.
+- Replacing the USB flash drive with dedicated HDD or SSD storage.
 - Exploring secure remote access.
 - Monitoring system resources and storage health.
+- Improving network reliability through a wired Ethernet connection.
 
 ---
 
 **Project Name:** ManzaNAS  
 **Project Type:** Personal IT HomeLab  
 **Purpose:** Hands-on learning in system administration, networking, and IT infrastructure.
+
