@@ -71,8 +71,6 @@ The network interface `wlo1` is used for the NAS's wireless network connection.
 
 ## 7. Screenshots
 
-*(Note: Upload your screenshots to the `screenshots/` folder in your repository to display them here)*
-
 ### OpenMediaVault Dashboard
 ![System Dashboard](screenshots/01-omv-dashboard.png)
 
