@@ -18,9 +18,10 @@
 
 | Configuration | Details |
 |---|---|
-| Storage Device | 500 GB HDD |
+| Internal Storage Device | 500 GB HDD (Operating System) |
+| External Storage Device | 28.5 GB USB Flash Drive (Data Storage)|
 | Shared Folder | `ManzaNAS_Files` |
-| Filesystem | Verify actual filesystem (EXT4 or BTRFS) |
+| Filesystem | EXT4 |
 | File Sharing Protocol | SMB/CIFS |
 
 - Shared folders are managed through the OpenMediaVault web interface.
