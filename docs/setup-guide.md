@@ -387,3 +387,9 @@ deployment:
 
 This implementation is intended for learning, experimentation, and basic
 centralized file sharing rather than production-critical storage.
+
+---
+
+**Project Name:** ManzaNAS  
+**Project Type:** Personal IT HomeLab  
+**Purpose:** Hands-on learning in system administration, networking, and IT infrastructure.
