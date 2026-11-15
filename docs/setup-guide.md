@@ -52,7 +52,6 @@ centralized file storage system accessible through a local network.
 -   Bootable USB installer
 -   Internet connection
 -   OpenMediaVault installation script
--   SSH client (optional)
 
 ### Important Preparation
 
