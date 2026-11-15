@@ -16,7 +16,7 @@ The project was developed as a hands-on learning experience in IT infrastructure
 
 - Deploy Debian Linux and OpenMediaVault on repurposed laptop hardware.
 - Configure network-based file sharing using SMB/CIFS.
-- Configure the Wi-Fi network interface (`wlo1`) for consistent local network access.
+- Configure the Wi-Fi network interface (`wlo1`) for easy access into local network access.
 - Create shared folders and manage user permissions.
 - Connect Windows and Android devices to the NAS.
 - Practice basic server configuration and command-line troubleshooting using the `ip` utility and `omv-firstaid`.
