@@ -1,123 +1,116 @@
 # ManzaNAS — OpenMediaVault NAS HomeLab
 
-A personal Network Attached Storage (NAS) HomeLab built using OpenMediaVault on repurposed laptop hardware.
+A personal Network Attached Storage (NAS) HomeLab built using Debian Linux and OpenMediaVault on repurposed laptop hardware.
 
-This project explores basic server administration, network file sharing, user access management, and cross-device file access within a local network.
+This project explores basic server administration, network file sharing, user access management, network interface configuration, and cross-device file access within a local network.
 
 ## 1. Project Overview
 
-ManzaNAS is a self-hosted NAS built using an old laptop running OpenMediaVault (OMV).
+ManzaNAS is a self-hosted NAS built using an old HP laptop running a foundational Debian Linux OS with OpenMediaVault (OMV) installed on top.
 
-The goal was to repurpose available hardware into a centralized file-sharing system that allows multiple devices to access shared files through the local network.
+The goal was to repurpose available hardware into a centralized, headless file-sharing system that allows multiple devices to access shared files through the local Wi-Fi network, ensuring continuous uptime and a permanent static IP address.
 
-The project was developed as a hands-on learning experience in IT infrastructure, system administration, and networking.
+The project was developed as a hands-on learning experience in IT infrastructure, system administration, networking, and Linux command-line troubleshooting.
 
 ## 2. Project Objectives
 
-- Deploy OpenMediaVault on repurposed laptop hardware.
+- Deploy Debian Linux and OpenMediaVault on repurposed laptop hardware.
 - Configure network-based file sharing using SMB/CIFS.
+- Establish a permanent static Wi-Fi connection (`wlo1`) for a headless server environment.
 - Create shared folders and manage user permissions.
 - Connect Windows and Android devices to the NAS.
-- Practice basic server configuration and troubleshooting.
+- Practice basic server configuration and CLI troubleshooting (`ip` suite, `omv-firstaid`).
 - Document the implementation and network architecture.
 
 ## 3. Hardware Specifications
 
 | Component | Specification |
 |---|---|
-| Server | Repurposed laptop |
+| Server | Repurposed HP Laptop |
 | CPU | Intel Celeron N4000 @ 1.10 GHz |
 | CPU Cores | 2 |
 | Memory | 4 GB RAM |
 | Storage | 500 GB HDD |
 | Hostname | ManzaNAS |
+| Interfaces | `eno1` (Gigabit Ethernet), `wlo1` (Wi-Fi) |
 
 ## 4. Technologies and Tools
 
-- **Operating System:** OpenMediaVault
+- **Operating System:** Debian Linux (Base) / OpenMediaVault (GUI)
 - **File Sharing Protocol:** SMB/CIFS
-- **Networking:** TCP/IP and Local Area Network (LAN)
+- **Networking:** TCP/IP, Local Area Network (LAN), static IP binding
 - **Windows Client:** Windows 11
 - **Android Client:** CX File Explorer
 - **Documentation:** GitHub and Markdown
-- **Network Diagram:** diagrams.net (draw.io), if used
 
 ## 5. Implemented Features
 
-- OpenMediaVault installation and configuration.
+- OpenMediaVault installation and network configuration.
 - SMB/CIFS network file sharing.
-- Shared folder configuration.
-- Separate user accounts and access permissions.
-- File access from Windows 11 and Android devices.
+- Shared folder configuration (`ManzaNAS_LJ`).
+- Separate user accounts and access permissions (`lj814` for OS, `manza` for SMB).
+- Power management adjustments to prevent the laptop from sleeping.
 - Network-based access to shared storage.
 
 ## 6. Network Architecture
 
-The NAS operates within a local network and provides shared storage access to connected client devices.
+The NAS operates within a local network and provides shared storage access to connected client devices via a permanent static Wi-Fi connection.
 
+*(Note: Add your `network-diagram.png` to the `docs/` folder)*
 ![ManzaNAS Network Diagram](docs/network-diagram.png)
 
 ## 7. Screenshots
 
-### OpenMediaVault Dashboard
+*(Note: Upload your screenshots to the `screenshots/` folder in your repository to display them here)*
 
+### OpenMediaVault Dashboard
 ![System Dashboard](screenshots/01-system-dashboard.png)
 
 ### System Information
-
 ![System Information](screenshots/02-system-information.png)
 
 ### Storage and Shared Folders
-
 ![Storage Filesystems](screenshots/03-storage-filesystems.png)
-
 ![Shared Folders](screenshots/04-shared-folders.png)
 
 ### SMB Configuration
-
 ![SMB Configuration](screenshots/05-smb-configuration.png)
 
 ### User and Permission Management
-
 ![User Management](screenshots/06-user-management.png)
-
 ![Folder Permissions](screenshots/07-folder-permissions.png)
 
 ### Client Access
-
 **Windows 11**
-
 ![Windows Client Access](screenshots/08-windows-client-access.png)
 
 **Android**
-
 ![Android Client Access](screenshots/09-android-client-access.png)
 
 ## 8. Documentation
 
-- [Setup Guide](docs/setup-guide.md)
-- [Configuration Details](docs/configuration.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Setup Guide](setup-guide.md)
+- [Configuration Details](configuration.md)
+- [Troubleshooting](troubleshooting.md)
 
 ## 9. Project Limitations
 
 The current implementation has the following limitations:
 
-- Remote access is not implemented.
+- Remote access (outside the local LAN) is not implemented.
 - Automated backup is not implemented.
-- The system uses repurposed laptop hardware with a single HDD.
-- Access is intended for the local network.
+- The system uses repurposed laptop hardware with a single HDD, meaning no RAID redundancy.
+- Relies on Wi-Fi (`wlo1`) as the primary connection, which requires specific power management handling.
 
 ## 10. Learning Outcomes
 
 Through this project, I gained hands-on experience with:
 
 - Installing and configuring a Linux-based NAS operating system.
-- Understanding SMB/CIFS network file sharing.
-- Configuring shared folders and user permissions.
-- Connecting and accessing network storage from different client devices.
-- Basic server and network troubleshooting.
-- Technical documentation and network diagram preparation.
+- Troubleshooting Linux network interfaces using `omv-firstaid` and `ip` commands.
+- Bypassing hardware bugs (e.g., HP Wi-Fi Warm Boot issues) through cold booting and power state masking.
+- Understanding SMB/CIFS network file sharing and user permissions.
+- Technical documentation preparation.
 
 ## 11. Future Improvements
 
@@ -126,7 +119,6 @@ Potential improvements include:
 - Implementing an automated backup strategy.
 - Exploring secure remote access.
 - Monitoring system resources and storage health.
-- Exploring additional network services.
 
 ---
 
