@@ -92,3 +92,9 @@ Potential maintenance activities include:
 - Checking system resource usage.
 - Reviewing user permissions.
 - Monitoring HDD health using appropriate tools.
+
+---
+
+**Project Name:** ManzaNAS  
+**Project Type:** Personal IT HomeLab  
+**Purpose:** Hands-on learning in system administration, networking, and IT infrastructure.
