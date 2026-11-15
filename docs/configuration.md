@@ -1,70 +1,132 @@
+
 # ManzaNAS Configuration
 
 ## 1. System Information
 
 | Configuration | Details |
 |---|---|
-| Hostname | ManzaNAS |
+| Hostname | `ManzaNAS` |
 | Operating System | Debian Linux + OpenMediaVault |
-| Processor | Intel Celeron N4000 |
+| Processor | Intel Celeron N4000 @ 1.10 GHz |
 | CPU Cores | 2 |
 | Memory | 4 GB RAM |
-| Storage | 500 GB HDD |
-| Network | Ethernet (`eno1`) / Wi-Fi (`wlo1`) |
+| Internal Storage | 500 GB HDD |
+| Network Interfaces | Ethernet (`eno1`) / Wi-Fi (`wlo1`) |
 | Network Environment | Local Area Network |
 
 ## 2. Storage Configuration
 
-- **Storage device:** 500 GB HDD
-- **Shared folder:** `ManzaNAS_Files`
-- **Filesystem:** ext4 / BTRFS (Refer to actual OMV filesystem)
+| Configuration | Details |
+|---|---|
+| Storage Device | 500 GB HDD |
+| Shared Folder | `ManzaNAS_Files` |
+| Filesystem | Verify actual filesystem (EXT4 or BTRFS) |
+| File Sharing Protocol | SMB/CIFS |
+
+- Shared folders are managed through the OpenMediaVault web interface.
+- Storage access is controlled through user permissions.
 
 ## 3. Network Configuration
 
-The NAS is connected to the local network via Wi-Fi and provides file-sharing services to client devices.
+| Configuration | Details |
+|---|---|
+| Hostname | `ManzaNAS` |
+| Active Connection | Wi-Fi (`wlo1`) |
+| IP Configuration | Static IP |
+| IPv4 Address | `192.168.x.x` |
+| IPv4 Netmask | `255.255.255.0` |
+| IPv4 Gateway | `192.168.1.1` |
+| DNS Server | `8.8.8.8` |
+| IPv6 | Disabled |
+| SMB Service | Enabled |
 
-- **Hostname:** ManzaNAS
-- **Active Connection:** Wi-Fi (`wlo1`)
-- **IP Configuration:** Static IP
-- **IPv4 Address:** `192.168.1.14`
-- **IPv4 Netmask:** `255.255.255.0`
-- **IPv4 Gateway:** `192.168.1.1`
-- **DNS Servers:** `8.8.8.8`
-- **IPv6 Method:** Disabled (to prevent routing conflicts)
-- **SMB Service:** Enabled
+### Network Notes
+
+- The NAS uses a static IPv4 address for consistent local network access.
+- IPv6 is disabled in the current configuration.
+- Ethernet (`eno1`) is available as an alternative network interface.
 
 ## 4. File Sharing Configuration
 
-| Item | Configuration |
+| Configuration | Details |
 |---|---|
 | Service | SMB/CIFS |
 | Shared Folder | `ManzaNAS_Files` |
-| Access Method | Network file sharing |
+| Access Method | Network File Sharing |
 | Windows Client | Windows 11 |
 | Android Client | CX File Explorer |
+| Network Scope | Local Area Network |
+
+SMB allows authorized devices to access shared files over the local network.
 
 ## 5. User and Access Management
 
-Separate user accounts were configured to manage access and separate OS operations from file sharing.
+| Account | Purpose |
+|---|---|
+| ` ` | System-level administration and recovery |
+| ` ` | Debian operating system user with assigned hardware-related group memberships |
+| ` ` | Dedicated OpenMediaVault user for SMB shared-folder access |
 
-- **`root`**: Used strictly for emergency system administration in the terminal.
-- **`lj814`**: The foundational Debian OS user. Retains hardware groups (`audio, bluetooth, cdrom, netdev, plugdev, video`) for physical access.
-- **`manza`**: Dedicated standard user created within OMV exclusively for SMB folder access.
+### Account Management Notes
 
-## 6. Power Management and Uptime Optimization
+- The ` ` account is reserved for privileged system operations.
+- The ` ` account has the following hardware-related group memberships: `audio`, `bluetooth`, `cdrom`, `netdev`, `plugdev`, and `video`.
+- The ` ` account is used for regular SMB authentication.
+- File access is controlled through OpenMediaVault shared-folder permissions and SMB configuration.
 
-Because the NAS runs on laptop hardware, default sleep states were disabled via the CLI to prevent the network from dropping when the lid is closed or the system is idle.
+## 6. Power Management
 
-**Command applied to disable sleep states:**
-`sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target`
+Laptop power-management settings were adjusted to prevent automatic suspension or hibernation during NAS operation.
+
+The following command was executed to disable the corresponding systemd targets:
+
+```bash
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+This configuration helps maintain NAS availability when the laptop is idle.
 
 ## 7. Security and Operational Notes
 
-- Separate user accounts are used for access management.
-- The NAS is meant to run continuously; soft reboots (`reboot`) should be avoided due to hardware quirks. Full Cold Boots (`poweroff`) are required.
+- Separate system and file-sharing accounts are maintained.
+- SMB access requires valid user credentials.
+- Shared-folder permissions control authorized file access.
 - NAS administration is intended for the local network.
-- Remote access is not currently implemented.
+- Remote access is not currently configured.
+- Automated backups are not yet implemented.
+
+### Power and Restart Considerations
+
+The current deployment has reported hardware-related restart quirks. Full shutdown and cold boot procedures are used when necessary instead of relying on routine soft reboots.
 
 ## 8. Backup and Recovery
 
-An automated backup strategy has not yet been implemented. The current deployment should not be treated as a secure backup solution for critical data until redundancy is established.
+An automated backup strategy has not yet been implemented.
+
+The current deployment provides centralized file storage but should not be considered a complete backup solution for critical data.
+
+Potential future improvements include:
+
+- Automated scheduled backups.
+- External backup storage.
+- Periodic backup verification.
+- Recovery testing.
+- Storage redundancy where supported by the available hardware.
+
+## 9. Configuration Summary
+
+| Category | Current Status |
+|---|---|
+| Debian Linux | Installed |
+| OpenMediaVault | Installed |
+| Static IPv4 Configuration | Configured |
+| Wi-Fi Connectivity | Configured |
+| SMB/CIFS | Enabled |
+| Shared Folder | Configured |
+| Separate User Accounts | Configured |
+| Windows 11 Access | Supported |
+| Android Access | Supported |
+| Remote Access | Not configured |
+| Automated Backup | Not implemented |
+
+**Project:** ManzaNAS — Self-hosted Network Attached Storage using Debian Linux and OpenMediaVault.
