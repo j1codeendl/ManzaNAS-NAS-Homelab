@@ -129,4 +129,8 @@ Potential future improvements include:
 | Remote Access | Not configured |
 | Automated Backup | Not implemented |
 
-**Project:** ManzaNAS — Self-hosted Network Attached Storage using Debian Linux and OpenMediaVault.
+---
+
+**Project Name:** ManzaNAS  
+**Project Type:** Personal IT HomeLab  
+**Purpose:** Hands-on learning in system administration, networking, and IT infrastructure.
