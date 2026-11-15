@@ -60,7 +60,7 @@ The OMV blue login screen loaded successfully on the new IP.
 ### Issue 3: HP Laptop Wi-Fi "Warm Boot Bug" (Hardware Hiding)
 
 **Symptoms:**
-After issuing a standard `reboot` command, the Wi-Fi interface (`wlo1`) completely vanished from the network list. Running `ip link` only showed `lo` and `eno1`. The static IP `192.168.1.14` could not load.
+After issuing a standard `reboot` command, the Wi-Fi interface (`wlo1`) completely vanished from the network list. Running `ip link` only showed `lo` and `eno1`. The static IP `192.168.x.x` could not load.
 
 **Investigation:**
 Verified the physical Wi-Fi button. Checked `ip link`.
@@ -76,7 +76,7 @@ Avoid standard reboots. Always perform a "Cold Boot":
 4. Press the physical power button to boot.
 
 **Verification:**
-Upon booting from a completely powered-off state, `ip link` detected `wlo1`, and the system successfully applied the static IP (`192.168.1.14`).
+Upon booting from a completely powered-off state, `ip link` detected `wlo1`, and the system successfully applied the static IP (`192.168.x.x`).
 
 ## 3. Known Limitations
 
