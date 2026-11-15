@@ -68,6 +68,7 @@ The NAS operates within a local network and provides shared storage access to co
 
 ### Storage and Shared Folders
 ![Storage Filesystems](screenshots/02-storage-filesystems.png)
+
 ![Shared Folders](screenshots/03-shared-folders.png)
 
 ### SMB Configuration
@@ -79,12 +80,16 @@ The NAS operates within a local network and provides shared storage access to co
 ### Client Access
 **Windows 11**
 ![Windows Client Access](screenshots/06-windows-client-access.png)
+
 ![Windows Client Access](screenshots/06-windows-client-access1.png)
 
 **Android**
 ![Android Client Access](screenshots/07-android-client-access.jpg)
+
 ![Android Client Access](screenshots/07-android-client-access1.jpg)
+
 ![Android Client Access](screenshots/07-android-client-access2.jpg)
+
 ## 8. Documentation
 
 - [Setup Guide](setup-guide.md)
