@@ -16,7 +16,7 @@
 ## 2. Storage Configuration
 
 - **Storage device:** 500 GB HDD
-- **Shared folder:** `ManzaNAS_LJ`
+- **Shared folder:** `ManzaNAS_Files`
 - **Filesystem:** ext4 / BTRFS (Refer to actual OMV filesystem)
 
 ## 3. Network Configuration
@@ -38,7 +38,7 @@ The NAS is connected to the local network via Wi-Fi and provides file-sharing se
 | Item | Configuration |
 |---|---|
 | Service | SMB/CIFS |
-| Shared Folder | `ManzaNAS_LJ` |
+| Shared Folder | `ManzaNAS_Files` |
 | Access Method | Network file sharing |
 | Windows Client | Windows 11 |
 | Android Client | CX File Explorer |
