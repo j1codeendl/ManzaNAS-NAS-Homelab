@@ -64,29 +64,27 @@ The NAS operates within a local network and provides shared storage access to co
 *(Note: Upload your screenshots to the `screenshots/` folder in your repository to display them here)*
 
 ### OpenMediaVault Dashboard
-![System Dashboard](screenshots/01-system-dashboard.png)
-
-### System Information
-![System Information](screenshots/02-system-information.png)
+![System Dashboard](screenshots/01-omv-dashboard.png)
 
 ### Storage and Shared Folders
-![Storage Filesystems](screenshots/03-storage-filesystems.png)
-![Shared Folders](screenshots/04-shared-folders.png)
+![Storage Filesystems](screenshots/02-storage-filesystems.png)
+![Shared Folders](screenshots/03-shared-folders.png)
 
 ### SMB Configuration
-![SMB Configuration](screenshots/05-smb-configuration.png)
+![SMB Configuration](screenshots/04-smb-configuration.png)
 
-### User and Permission Management
-![User Management](screenshots/06-user-management.png)
-![Folder Permissions](screenshots/07-folder-permissions.png)
+### User Permission Management
+![User Management](screenshots/05-user-permissions.png)
 
 ### Client Access
 **Windows 11**
-![Windows Client Access](screenshots/08-windows-client-access.png)
+![Windows Client Access](screenshots/06-windows-client-access.png)
+![Windows Client Access](screenshots/06-windows-client-access1.png)
 
 **Android**
-![Android Client Access](screenshots/09-android-client-access.png)
-
+![Android Client Access](screenshots/07-android-client-access.png)
+![Android Client Access](screenshots/07-android-client-access1.png)
+![Android Client Access](screenshots/07-android-client-access2.png)
 ## 8. Documentation
 
 - [Setup Guide](setup-guide.md)
