@@ -36,20 +36,20 @@ This guide documents the general deployment and initial setup of ManzaNAS using 
 1. Check that the 500 GB HDD is detected in the OMV interface.
 2. Verify and format the filesystem.
 3. Mount the filesystem through the OpenMediaVault interface.
-4. Create the required shared folder named `ManzaNAS_LJ`.
+4. Create the required shared folder named `ManzaNAS_Files`.
 
 ## 5. User and Permission Configuration
 
 1. Create a dedicated user account inside OMV (`manza`) for network file sharing.
 2. Ensure the primary OS user (`lj814`) is left alone and used only for local physical terminal access.
-3. Configure shared folder access permissions for `ManzaNAS_LJ`.
+3. Configure shared folder access permissions for `ManzaNAS_Files`.
 4. Assign Read/Write permissions to the `manza` account.
 
 ## 6. SMB File Sharing Configuration
 
 1. Open the SMB/CIFS service settings in OMV.
 2. Enable the SMB service.
-3. Add the `ManzaNAS_LJ` shared folder to the SMB configuration.
+3. Add the `ManzaNAS_Files` shared folder to the SMB configuration.
 4. Apply and save the configuration using the yellow pending changes banner.
 5. Verify that the shared folder is accessible from client devices.
 
@@ -58,7 +58,7 @@ This guide documents the general deployment and initial setup of ManzaNAS using 
 ### Windows 11
 
 1. Open File Explorer.
-2. Navigate to the network location using the NAS address (e.g., `\\192.168.1.14\ManzaNAS_LJ`).
+2. Navigate to the network location using the NAS address (e.g., `\\192.168.1.14\ManzaNAS_Files`).
 3. Enter the `manza` credentials when prompted.
 4. Access the shared folder.
 
